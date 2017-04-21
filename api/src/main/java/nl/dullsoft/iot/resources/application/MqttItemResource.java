@@ -1,13 +1,12 @@
 package nl.dullsoft.iot.resources.application;
 
-import nl.dulsoft.iot.service.mqtt.MqttItemState;
-import nl.dulsoft.iot.service.mqtt.MqttService;
+import nl.dulsoft.iot.mqtt.service.MqttItemState;
+import nl.dulsoft.iot.mqtt.service.MqttService;
 
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
-
 
 
 /**
@@ -18,14 +17,20 @@ import java.util.List;
 @Path(MqttItemResource.API_PATH)
 public class MqttItemResource {
 
-    static final String API_PATH = "/api/v1/mqttitem";
+    static final String API_PATH = "/api/v1/devices";
     private MqttService mqttService;
 
     @GET
     @Path("{itemId}")
-    public MqttItemState getState(@PathParam("itemId") String itemId) {
+    public MqttItemState getState(@NotNull @PathParam("itemId") String itemId) {
 
         return mqttService.getState(itemId);
+    }
+    // doel
+    @PUT
+    @Path("{itemId}")
+    public void setState(@NotNull @PathParam("itemId") String itemId, MqttItemState state) {
+        mqttService.setState(itemId, state);
     }
 
     @Inject
