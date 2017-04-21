@@ -61,6 +61,13 @@ public class MqttServiceImpl implements MqttService {
 
     @Override
     public void setState(String itemId, MqttItemState state) {
-
+        switch (state) {
+            case ON:
+                switchOn(itemId);
+                break;
+            case OFF:
+                switchOff(itemId);
+                break;
+        }
     }
 }

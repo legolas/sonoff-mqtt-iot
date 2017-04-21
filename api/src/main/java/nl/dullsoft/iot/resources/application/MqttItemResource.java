@@ -26,7 +26,7 @@ public class MqttItemResource {
 
         return mqttService.getState(itemId);
     }
-    // doel
+
     @PUT
     @Path("{itemId}")
     public void setState(@NotNull @PathParam("itemId") String itemId, MqttItemState state) {
