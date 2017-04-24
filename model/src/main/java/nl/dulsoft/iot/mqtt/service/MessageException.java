@@ -8,4 +8,8 @@ public class MessageException extends RuntimeException {
     public MessageException(String msg) {
         super(msg);
     }
+
+    MessageException(String msg, Throwable cause) {
+        super(msg, cause);
+    }
 }
