@@ -1,0 +1,22 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <module-name>devices</module-name>
+    <description>Devices API</description>
+
+    <servlet-mapping>
+        <servlet-name>nl.dullsoft.iot.application.MqttApplication</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--<filter>-->
+    <!--<filter-name>CORSFilter</filter-name>-->
+    <!--<filter-class>nl.rws.dso.cors.filter.CorsFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+    <!--<filter-name>CORSFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+</web-app>
