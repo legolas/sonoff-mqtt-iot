@@ -3,8 +3,6 @@ package nl.dulsoft.iot.mqtt.paho;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -14,9 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
@@ -49,7 +45,7 @@ public class PahoClientTest {
         when(mqttClient.isConnected()).thenReturn(true);
 
         pahoClient.send(SEND_TOPIC, ON_MESSAGE);
-        
+
         verify(mqttClient).publish(topicArgument.capture(), messageArgument.capture(), eq(2), eq(false));
 
         assertArrayEquals(ON_MESSAGE.getBytes(), messageArgument.getValue());

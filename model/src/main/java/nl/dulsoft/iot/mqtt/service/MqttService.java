@@ -15,18 +15,21 @@ public interface MqttService {
 
     /**
      * Toggles the state of the switch
+     *
      * @param itemId
      */
     void toggleState(String itemId);
 
     /**
      * Set's the state of the switch on
+     *
      * @param itemId
      */
     void switchOn(String itemId);
 
     /**
      * Set's the state of the switch off
+     *
      * @param itemId
      */
     void switchOff(String itemId);

@@ -2,7 +2,6 @@ package nl.dulsoft.iot.mqtt.service;
 
 import nl.dulsoft.iot.mqtt.paho.PahoClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -10,8 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
 
 /**
  * @author <a href="mailto:marcel.dullaart@rws.nl">Marcel Dullaart</a>

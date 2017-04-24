@@ -135,12 +135,10 @@
 
     <dependencies>
 
-<!-- https://mvnrepository.com/artifact/org.jboss.spec/jboss-javaee-7.0 -->
-<!-- https://mvnrepository.com/artifact/org.jboss.spec/jboss-javaee-7.0 -->
-<dependency>
-    <groupId>org.jboss.spec</groupId>
-    <artifactId>jboss-javaee-all-7.0</artifactId>
-    <version>1.1.0.Final</version>
+        <dependency>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-javaee-all-7.0</artifactId>
+            <version>1.1.0.Final</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -224,15 +222,5 @@
 
         </plugins>
     </build>
-<!--
-    <scm>
-        <connection>scm:git:git@www.gitlab.sp.ictu:realisatie/tijdslijn</connection>
-        <developerConnection>scm:git:git@www.gitlab.sp.ictu:realisatie/tijdslijn</developerConnection>
-    </scm>
 
-    <organization>
-        <name>ICTU</name>
-        <url>https://www.ictu.nl/</url>
-    </organization>
--->
 </project>
