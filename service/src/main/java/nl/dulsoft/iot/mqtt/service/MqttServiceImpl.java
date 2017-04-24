@@ -1,6 +1,7 @@
 package nl.dulsoft.iot.mqtt.service;
 
 import nl.dulsoft.iot.mqtt.paho.PahoClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 import javax.inject.Inject;
 
@@ -26,6 +27,7 @@ public class MqttServiceImpl implements MqttService {
      *
      * @param itemId defines the item requested
      * @return
+     * @throws MessageException when sending has failed
      */
     @Override
     public MqttItemState getState(String itemId) {
@@ -35,28 +37,44 @@ public class MqttServiceImpl implements MqttService {
     /**
      * Toggles the state of the switch
      *
-     * @param itemId
+     * @param itemId defines the item to control
+     * @throws MessageException when sending has failed
      */
     public void toggleState(String itemId) {
-        client.send(String.format(PUBLISH_FMT, itemId), TOGGLE);
+
+        try {
+            client.send(String.format(PUBLISH_FMT, itemId), TOGGLE);
+        } catch (MqttException me) {
+            throw new MessageException(String.format("Failed to toggle the state of %s", itemId), me);
+        }
     }
 
     /**
      * Set's the state of the switch on
      *
      * @param itemId
+     * @throws MessageException when sending has failed
      */
     public void switchOn(String itemId) {
-        client.send(String.format(PUBLISH_FMT, itemId), ON);
+        try {
+            client.send(String.format(PUBLISH_FMT, itemId), ON);
+        } catch (MqttException me) {
+            throw new MessageException(String.format("Failed to toggle the state of %s", itemId), me);
+        }
     }
 
     /**
      * Set's the state of the switch off
      *
      * @param itemId
+     * @throws MessageException when sending has failed
      */
     public void switchOff(String itemId) {
-        client.send(String.format(PUBLISH_FMT, itemId), OFF);
+        try {
+            client.send(String.format(PUBLISH_FMT, itemId), OFF);
+        } catch (MqttException me) {
+            throw new MessageException(String.format("Failed to toggle the state of %s", itemId), me);
+        }
     }
 
     @Override
