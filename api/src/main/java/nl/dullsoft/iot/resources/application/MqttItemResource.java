@@ -2,6 +2,8 @@ package nl.dullsoft.iot.resources.application;
 
 import nl.dulsoft.iot.mqtt.service.MqttItemState;
 import nl.dulsoft.iot.mqtt.service.MqttService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
@@ -17,20 +19,26 @@ import javax.ws.rs.core.MediaType;
 @Path(MqttItemResource.API_PATH)
 public class MqttItemResource {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MqttItemResource.class);
+
     static final String API_PATH = "/api/v1/devices";
     private MqttService mqttService;
 
     @GET
     @Path("{itemId}")
     public MqttItemState getState(@NotNull @PathParam("itemId") String itemId) {
-
+        LOGGER.info("getState({})", itemId);
         return mqttService.getState(itemId);
     }
 
     @PUT
     @Path("{itemId}")
-    public void setState(@NotNull @PathParam("itemId") String itemId, MqttItemState state) {
-        mqttService.setState(itemId, state);
+    public void setState(@NotNull @PathParam("itemId") String itemId,
+                         String state) {
+        LOGGER.info("setState({})", itemId, state);
+
+        MqttItemState mqttItemState = MqttItemState.valueOf(state);
+        mqttService.setState(itemId, mqttItemState);
     }
 
     @Inject

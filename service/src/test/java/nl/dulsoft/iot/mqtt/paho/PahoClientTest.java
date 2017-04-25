@@ -92,7 +92,8 @@ public class PahoClientTest {
 
     @Test
     public void shouldCreateMqttClient() {
-        assertNotNull(pahoClient.createClient());
+        MqttClient client = pahoClient.createClient();
+        assertNotNull(client);
     }
 
     @Test

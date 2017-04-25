@@ -43,13 +43,13 @@ public class MqttItemResourceTest {
 
     @Test
     public void shouldCall_setState_withItemIdAndOnState() {
-        resource.setState(ITEM_ID, MqttItemState.ON);
+        resource.setState(ITEM_ID, MqttItemState.ON.name());
         verify(mqttService).setState(ITEM_ID, MqttItemState.ON);
     }
 
     @Test
     public void shouldCall_setState_withItemIdAndffState() {
-        resource.setState(ITEM_ID, MqttItemState.OFF);
+        resource.setState(ITEM_ID, MqttItemState.OFF.name());
         verify(mqttService).setState(ITEM_ID, MqttItemState.OFF);
     }
 }
