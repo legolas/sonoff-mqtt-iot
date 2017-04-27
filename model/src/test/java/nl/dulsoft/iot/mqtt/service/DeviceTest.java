@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  */
 public class DeviceTest {
 
-    public static final String DEVICE_ID = "sonoff666";
+    private static final String DEVICE_ID = "sonoff666";
 
     @Test
     public void itShouldReturn_DeviceID() {
@@ -23,7 +23,7 @@ public class DeviceTest {
     @Test
     public void itShouldReturn_DeviceState_On() {
         Device device = new Device();
-        device.setState(MqttItemState.ON);
-        assertEquals(MqttItemState.ON, device.getState());
+        device.setState("ON");
+        assertEquals("ON", device.getState());
     }
 }

@@ -5,7 +5,7 @@ package nl.dulsoft.iot.mqtt.service;
  */
 public class Device {
     private String id;
-    private MqttItemState state;
+    private String state;
 
     public void setId(String id) {
         this.id = id;
@@ -15,11 +15,11 @@ public class Device {
         return id;
     }
 
-    public MqttItemState getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(MqttItemState state) {
+    public void setState(String state) {
         this.state = state;
     }
 }

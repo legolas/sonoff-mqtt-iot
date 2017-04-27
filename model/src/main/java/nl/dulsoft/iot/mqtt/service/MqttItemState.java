@@ -5,6 +5,7 @@ package nl.dulsoft.iot.mqtt.service;
  */
 public enum MqttItemState {
 
+
     ON,
     OFF
 }
