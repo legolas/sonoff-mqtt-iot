@@ -14,10 +14,10 @@ describe("home-automation App", () => {
     });
 
     it("should display the 'On' button", () => {
-        element(by.buttonText("On")).isDisplayed();
+        element(by.id("btn-on")).isDisplayed();
     });
 
     it("should display the 'Off' button", () => {
-        element(by.buttonText("Off")).isDisplayed();
+        element(by.id("btn-off")).isDisplayed();
     });
 });

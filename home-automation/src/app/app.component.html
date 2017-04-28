@@ -1,5 +1,20 @@
 <h1>
-  {{title}}
+    {{title}}
 </h1>
-<button id="sonoff1-on-button">On</button>
-<button id="sonoff1-off-button">Off</button>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">Sonoff 1</div>
+        <div class="col-3">
+            <div [(ngModel)]="model" ngbRadioGroup name="sonoff1">
+                <label class="btn btn-primary">
+                    <input type="radio" value="ON" id="btn-on"> On
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" value="OFF" id="btn-off"> Off
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
