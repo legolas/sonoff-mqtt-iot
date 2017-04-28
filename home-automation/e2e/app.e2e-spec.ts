@@ -1,7 +1,7 @@
 import { HomeAutomationPage } from "./app.po";
 import { by, element } from 'protractor';
 
-describe("home-automation App", () => {
+describe("Home Automation App", () => {
     let page: HomeAutomationPage;
 
     beforeEach(() => {
@@ -10,7 +10,7 @@ describe("home-automation App", () => {
 
     it("should display message saying app works", () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual("app works!");
+        expect(page.getParagraphText()).toEqual("Home Automation");
     });
 
     it("should display the 'On' button", () => {
