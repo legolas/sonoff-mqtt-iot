@@ -15,6 +15,7 @@ export class AppComponent {
     }
 
     clickOn() {
+        console.info("#clickOn");
         this.mqttService
             .updateState("ON")
             .toPromise()
@@ -26,5 +27,6 @@ export class AppComponent {
 
     clickOff() {
         // this.mqttService.updateState("OFF");
+        console.info("#clickOn");
     }
 }

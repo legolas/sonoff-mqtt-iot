@@ -11,6 +11,7 @@ export class MqttItemService {
     }
 
     updateState(state: string): Observable<Response> {
+        console.info("Update state to " + state);
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
 

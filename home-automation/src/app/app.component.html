@@ -4,16 +4,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6">Sonoff 1</div>
+        <div class="col-3">Sonoff 1</div>
         <div class="col-3">
-            <div [(ngModel)]="model" ngbRadioGroup name="sonoff1" >
-                <label class="btn btn-primary">
-                    <input type="radio" value="true" id="btn-on" (click)="clickOn"> On
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" value="false" id="btn-off" (click)="clickOff"> Off
-                </label>
-            </div>
+            <button type="button"
+                    id="btn-on"
+                    class="btn btn-primary"
+                    (click)="clickOn()">
+                On
+            </button>
+            <button type="button"
+                    id="btn-off"
+                    class="btn btn-primary"
+                    (click)="clickOn()">
+                Off
+            </button>
         </div>
     </div>
     <div class="row">
