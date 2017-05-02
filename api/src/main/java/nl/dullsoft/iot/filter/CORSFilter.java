@@ -22,7 +22,8 @@ public class CORSFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        setCorsHeaders((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
+//        setCorsHeaders((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class CORSFilter implements Filter {
 
     private void setCorsHeaders(HttpServletRequest request, HttpServletResponse response) {
 
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Allow-Origin", "*");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {

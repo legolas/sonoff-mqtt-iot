@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MqttItemService {
 
-    private url: string = "/devices/api/v1";
+    // private url: string = "/devices/api/v1";
+    private url: string = "http://localhost:8080/devices/api/v1";
 
     constructor(private http: Http) {
     }

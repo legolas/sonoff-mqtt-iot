@@ -18,15 +18,18 @@ export class AppComponent {
         console.info("#clickOn");
         this.mqttService
             .updateState("ON")
-            .toPromise()
-            .then(() => {
-                console.log("Switched on");
-            })
-            .catch(e => console.log(e));
+            .subscribe(() => {
+                console.log("Send 'ON' to sonoff1");
+            });
     }
 
     clickOff() {
         // this.mqttService.updateState("OFF");
-        console.info("#clickOn");
+        console.info("#clickOff");
+        this.mqttService
+            .updateState("OFF")
+            .subscribe(() => {
+                console.log("Send 'OFF' to sonoff1");
+            });
     }
 }
