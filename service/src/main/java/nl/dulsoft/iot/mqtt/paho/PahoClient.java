@@ -20,7 +20,7 @@ public class PahoClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(PahoClient.class);
 
     private static final String BROKER = "tcp://192.168.1.150";
-    private static final String CLIENT_ID = "Mqtt Client";
+    private static final String CLIENT_ID = "IoT-Client";
     private MqttClient mqttClient;
 
     public void send(String topic, String message) throws MqttException {
