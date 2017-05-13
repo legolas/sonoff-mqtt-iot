@@ -22,7 +22,7 @@ public class CORSFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-//        setCorsHeaders((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
+        setCorsHeaders((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
