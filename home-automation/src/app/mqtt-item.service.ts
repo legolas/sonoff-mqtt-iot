@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class MqttItemService {
 
     // private url: string = "/devices/api/v1";
-    private url: string = "http://localhost:8080/devices/api/v1/devices";
+    private url: string = "/devices/api/v1/devices";
 
     constructor(private http: Http) {
     }

@@ -45,7 +45,7 @@ describe("MqttItemService", () => {
             // Check the request method
             expect(connection.request.method).toEqual(RequestMethod.Put);
             // Check the url
-            expect(connection.request.url).toEqual("/devices/api/v1/sonoff1");
+            expect(connection.request.url).toEqual("/devices/api/v1/devices/sonoff1");
             // Check the body
             expect(connection.request.text()).toEqual("ON");
             // expect(connection.request.text()).toEqual(JSON.stringify({username: "admin", password: "secret"}));
@@ -72,7 +72,7 @@ describe("MqttItemService", () => {
             // Check the request method
             expect(connection.request.method).toEqual(RequestMethod.Put);
             // Check the url
-            expect(connection.request.url).toEqual("/devices/api/v1/sonoff1");
+            expect(connection.request.url).toEqual("/devices/api/v1/devices/sonoff1");
             // Check the body
             expect(connection.request.text()).toEqual("OFF");
             // expect(connection.request.text()).toEqual(JSON.stringify({username: "admin", password: "secret"}));
