@@ -20,12 +20,13 @@ public class PahoClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(PahoClient.class);
 
     private static final String BROKER = "tcp://192.168.1.150";
-    private static final String CLIENT_ID = "Mqtt Client";
+    private static final String CLIENT_ID_FMT = "IoT-Client_%d";
     private MqttClient mqttClient;
 
     public void send(String topic, String message) throws MqttException {
-        LOGGER.info("send({}, {})", topic, message);
+        LOGGER.info("send {}, {}", topic, message);
         getMqttClient().publish(topic, message.getBytes(), 2, false);
+        LOGGER.info("sent {}, {}", topic, message);
     }
 
     MqttClient getMqttClient() throws MqttException {
@@ -47,14 +48,19 @@ public class PahoClient {
     }
 
     MqttClient createClient() {
-        LOGGER.info("Create MQTT client");
+        String clientId = createClientId();
+        LOGGER.info("Create MQTT client: {}", clientId);
         try {
-            return new MqttClient(BROKER, CLIENT_ID, new MemoryPersistence());
+            return new MqttClient(BROKER, clientId, new MemoryPersistence());
         } catch (MqttException e) {
             throw new MessageException(
                 String.format("Cannot create client %s for %s",
-                    CLIENT_ID, BROKER));
+                    clientId, BROKER));
         }
+    }
+
+    private String createClientId() {
+        return String.format(CLIENT_ID_FMT, Thread.currentThread().getId());
     }
 
     private MqttConnectOptions createConnectionOptions() {
