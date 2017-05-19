@@ -12,6 +12,7 @@
         <module>api</module>
         <module>model</module>
         <module>service</module>
+        <module>web-ui</module>
     </modules>
 
     <properties>
