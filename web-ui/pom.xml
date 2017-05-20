@@ -11,6 +11,7 @@
 
     <artifactId>web-ui</artifactId>
 
+<!--
     <build>
         <plugins>
             <plugin>
@@ -50,7 +51,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <!-- Below script currently fails on jenkins -->
+                            &lt;!&ndash; Below script currently fails on jenkins &ndash;&gt;
                             <skip>true</skip>
                             <arguments>run-script coverage</arguments>
                         </configuration>
@@ -70,6 +71,7 @@
 
         </plugins>
     </build>
+-->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
