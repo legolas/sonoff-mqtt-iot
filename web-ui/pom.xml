@@ -11,7 +11,6 @@
 
     <artifactId>web-ui</artifactId>
 
-<!--
     <build>
         <plugins>
             <plugin>
@@ -71,7 +70,7 @@
 
         </plugins>
     </build>
--->
+         
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
