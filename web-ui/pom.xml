@@ -50,7 +50,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            &lt;!&ndash; Below script currently fails on jenkins &ndash;&gt;
+                            &lt;!&ndash; Below script currently fails on RPI jenkins&ndash;&gt;
                             <skip>true</skip>
                             <arguments>run-script coverage</arguments>
                         </configuration>
