@@ -26,4 +26,10 @@ node {
       // Deploy the war file to jboss
       sh "cp api/target/*.war /opt/jboss-eap-7.0/standalone/deployments/mqtt-communication-api.war"
    }
+   stage('Deploy UI') {
+      // Remove existing UI files
+      sh "rm /usr/share/nginx/html/*"
+      // Deploy the ui to nginx
+      sh "cp -R web-ui/target/dist/* /usr/share/nginx/html/"
+   }
 }
