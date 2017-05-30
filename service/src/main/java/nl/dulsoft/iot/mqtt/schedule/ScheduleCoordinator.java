@@ -3,6 +3,8 @@ package nl.dulsoft.iot.mqtt.schedule;
 import nl.dulsoft.iot.mqtt.service.MqttService;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -28,6 +30,7 @@ import static org.quartz.core.jmx.JobDataMapSupport.newJobDataMap;
 @Singleton
 public class ScheduleCoordinator {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleCoordinator.class);
 
     public static final String SONOFF1 = "sonoff1";
     public static final String SWITCH_ON = "switchOn";
@@ -44,6 +47,7 @@ public class ScheduleCoordinator {
 
     @PostConstruct
     public void startUp() throws SchedulerException {
+        LOGGER.info("Starting the job scheduler");
         scheduler = getScheduler();
 
         scheduler.scheduleJob(
@@ -56,15 +60,19 @@ public class ScheduleCoordinator {
             createTrigger(SWITCH_OFF, SONOFF1, "0 30 23 ? * MON,TUE,WED,THU,SUN *")
         );
 
+        LOGGER.info("Starting the scheduler");
         scheduler.start();
     }
 
     @PreDestroy
     public void cleanUp() throws SchedulerException {
+        LOGGER.info("Shutdown the scheduler, waiting for jobs to complete");
         getScheduler().shutdown(true);
+        LOGGER.info("Scheduler is shut down");
     }
 
     private JobDetail createJob(String name, String group, String state) {
+        LOGGER.info(String.format("Create job %s.%s to %s", name, group, state));
         Map<String, Object> dataMap = Collections.unmodifiableMap(
             Stream.of(
                 new AbstractMap.SimpleEntry<>(SwitchJob.DEVICE, group),
@@ -79,6 +87,7 @@ public class ScheduleCoordinator {
     }
 
     private Trigger createTrigger(String name, String group, String schedule) {
+        LOGGER.info(String.format("Create trigger %s.%s to %s", name, group, schedule));
         return newTrigger()
             .withIdentity(name, group)
             .withSchedule(cronSchedule(schedule))
