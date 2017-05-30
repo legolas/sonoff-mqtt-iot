@@ -3,11 +3,13 @@ package nl.dulsoft.iot.mqtt.service;
 import nl.dulsoft.iot.mqtt.paho.PahoClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**
  * @author <a href="mailto:marcel.dullaart@rws.nl">Marcel Dullaart</a>
  */
+@Default
 public class MqttServiceImpl implements MqttService {
 
     private static final String PUBLISH_FMT = "cmnd/%s/POWER";
