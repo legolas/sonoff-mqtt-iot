@@ -1,3 +1,4 @@
+import { UiSwitchModule } from 'ngx-ui-switch/src';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,8 @@ import { MqttItemService } from './mqtt-item.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        UiSwitchModule
     ],
     providers: [
         MqttItemService

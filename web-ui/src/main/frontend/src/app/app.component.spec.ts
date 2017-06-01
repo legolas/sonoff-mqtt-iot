@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { MqttItemService } from './mqtt-item.service';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 describe("AppComponent", () => {
 
@@ -27,7 +28,8 @@ describe("AppComponent", () => {
                 BrowserModule,
                 FormsModule,
                 HttpModule,
-                NgbModule.forRoot()
+                NgbModule.forRoot(),
+                UiSwitchModule
             ]
         }).compileComponents();
 
