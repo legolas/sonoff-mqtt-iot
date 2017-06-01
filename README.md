@@ -10,6 +10,8 @@ This firmware provides MQTT support to the sonoff devices.
 The solution:
 * uses the [paho MQTT](https://eclipse.org/paho/clients/java/) java library for MQTT communication;
 * relies on a running MQTT broker, like [Mosquitto](http://www.instructables.com/id/Installing-MQTT-BrokerMosquitto-on-Raspberry-Pi/);
+* uses [angular2-mqtt](https://www.npmjs.com/package/angular2-mqtt)
+* uses [ngx-ui-switch](https://www.npmjs.com/package/ngx-ui-switch)
 * is deployed on a [JBoss EAP 7](https://developers.redhat.com/products/eap/download/) instance.
 
 ## Deployment

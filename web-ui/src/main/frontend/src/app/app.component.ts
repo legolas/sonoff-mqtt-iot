@@ -9,12 +9,23 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent {
     title = "Home Automation";
-    model: boolean = false;
+    enable: boolean = false;
 
     constructor(private mqttService: MqttItemService) {
     }
 
-    clickOn() {
+    onChange(newValue) {
+        this.enable = newValue;
+        console.info("Change " + this.enable);
+
+        if (this.enable) {
+            this.switchOn();
+        } else {
+            this.switchOff();
+        }
+    }
+
+    switchOn() {
         console.info("#clickOn");
         this.mqttService
             .updateState("ON")
@@ -23,8 +34,8 @@ export class AppComponent {
             });
     }
 
-    clickOff() {
-        // this.mqttService.updateState("OFF");
+    // this.mqttService.updateState("OFF");
+    switchOff() {
         console.info("#clickOff");
         this.mqttService
             .updateState("OFF")

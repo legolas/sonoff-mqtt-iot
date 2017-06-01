@@ -4,23 +4,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-3">Sonoff 1</div>
-        <div class="col-3">
-            <button type="button"
-                    id="btn-on"
-                    class="btn btn-primary"
-                    (click)="clickOn()">
-                On
-            </button>
-            <button type="button"
-                    id="btn-off"
-                    class="btn btn-primary"
-                    (click)="clickOff()">
-                Off
-            </button>
-        </div>
+        <label for="sonoff1">Sonoff 1</label>
+        <ui-switch id="sonoff1"
+                   [ngModel]="enable"
+                   (ngModelChange)="onChange($event)"></ui-switch> {{enable}}
     </div>
     <div class="row">
-        <pre>{{model}}</pre>
+        <pre>{{enable}}</pre>
     </div>
 </div>
+
+<hr>
