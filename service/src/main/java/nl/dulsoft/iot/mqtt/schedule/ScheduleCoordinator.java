@@ -36,12 +36,12 @@ public class ScheduleCoordinator {
     public static final String SWITCH_ON = "switchOn";
     public static final String SWITCH_OFF = "switchOff";
 
-    private final MqttService mqttService;
+    private MqttService mqttService;
 
     private Scheduler scheduler;
 
     @Inject
-    public ScheduleCoordinator(MqttService mqttService) {
+    public void setMqttService(MqttService mqttService) {
         this.mqttService = mqttService;
     }
 
