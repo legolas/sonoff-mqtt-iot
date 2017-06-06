@@ -1,16 +1,16 @@
-<h1>
-    {{title}}
-</h1>
 
 <div class="container">
+    <div class="row"><h1>{{title}}</h1></div>
+
     <div class="row">
-        <label for="sonoff1">Sonoff 1</label>
-        <ui-switch id="sonoff1"
-                   [ngModel]="enable"
-                   (ngModelChange)="onChange($event)"></ui-switch> {{enable}}
-    </div>
-    <div class="row">
-        <pre>{{enable}}</pre>
+
+        <div class="col-md-1">
+            <ui-switch id="sonoff1" [ngModel]="enable" (ngModelChange)="onChange($event)"></ui-switch>
+        </div>
+        <div class="col-md-11 left-text">
+            <label for="sonoff1">Sonoff 1</label>
+        </div>
+
     </div>
 </div>
 
