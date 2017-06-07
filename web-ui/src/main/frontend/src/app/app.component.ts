@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MqttItemService } from './mqtt-item.service';
+import { MqttItemService } from './devices.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({

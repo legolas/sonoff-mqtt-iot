@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MqttItemService } from './mqtt-item.service';
+import { MqttItemService } from './devices.service';
 
 @NgModule({
     declarations: [

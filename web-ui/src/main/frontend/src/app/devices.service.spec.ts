@@ -1,6 +1,6 @@
 import { inject, TestBed } from '@angular/core/testing';
 
-import { MqttItemService } from './mqtt-item.service';
+import { MqttItemService } from './devices.service';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions, Http, RequestMethod, Response, ResponseOptions } from '@angular/http';
 
