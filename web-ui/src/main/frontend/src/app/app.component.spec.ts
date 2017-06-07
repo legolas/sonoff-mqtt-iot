@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
-import { MqttItemService } from './mqtt-item.service';
+import { MqttItemService } from './devices.service';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { by } from 'protractor';
 
 describe("AppComponent", () => {
 
@@ -56,15 +57,30 @@ describe("AppComponent", () => {
         expect(compiled.querySelector("h1").textContent).toContain("Home Automation");
     }));
 
-    xit("should call MqttItemService.updateState('ON')", async(() => {
-        app.clickOn();
+    it("should have a button with id 'sonoff1'", async(() => {
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector("#sonoff1")).toBeTruthy();
+    }));
+
+    it("first click should call MqttItemService.updateState with 'ON', second click with 'OFF'", async(() => {
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        const toggle = compiled.querySelector("#sonoff1");
+
+        toggle.click();
         expect(mqttService.updateState).toHaveBeenCalledWith("ON");
+
+        toggle.click();
+        expect(mqttService.updateState).toHaveBeenCalledWith("OFF");
     }));
 
     xit("should call MqttItemService.updateState('OFF')", async(() => {
-        app.clickOff()
-            .subscribe((response) =>{
-                expect(mqttService.updateState).toHaveBeenCalledWith("OFF");
-            });
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        const onButton = compiled.querySelector("#sonoff1");
+
+        onButton.click();
+
+        expect(mqttService.updateState).toHaveBeenCalledWith("ON");
     }));
 });
