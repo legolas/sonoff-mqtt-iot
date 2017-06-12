@@ -52,12 +52,17 @@ public class ScheduleCoordinator {
 
         scheduler.scheduleJob(
             createJob(SWITCH_ON, SONOFF1, SwitchJob.ON),
-            createTrigger(SWITCH_ON, SONOFF1, "0 0 20 ? * MON,TUE,WED,THU,SUN *")
+            createTrigger(SWITCH_ON, SONOFF1, "0 0 20 ? * * *")
         );
 
         scheduler.scheduleJob(
             createJob(SWITCH_OFF, SONOFF1, SwitchJob.OFF),
-            createTrigger(SWITCH_OFF, SONOFF1, "0 30 23 ? * MON,TUE,WED,THU,SUN *")
+            createTrigger(SWITCH_OFF, SONOFF1, "0 0 23 ? * MON,TUE,WED,THU,SUN *")
+        );
+
+        scheduler.scheduleJob(
+            createJob(SWITCH_OFF, SONOFF1, SwitchJob.OFF),
+            createTrigger(SWITCH_OFF, SONOFF1, "0 30 23 ? * FRI,SAT *")
         );
 
         LOGGER.info("Starting the scheduler");

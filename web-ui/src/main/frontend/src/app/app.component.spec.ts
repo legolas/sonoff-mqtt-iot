@@ -73,14 +73,4 @@ describe("AppComponent", () => {
         toggle.click();
         expect(mqttService.updateState).toHaveBeenCalledWith("OFF");
     }));
-
-    xit("should call MqttItemService.updateState('OFF')", async(() => {
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        const onButton = compiled.querySelector("#sonoff1");
-
-        onButton.click();
-
-        expect(mqttService.updateState).toHaveBeenCalledWith("ON");
-    }));
 });

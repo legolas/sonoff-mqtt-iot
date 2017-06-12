@@ -44,13 +44,12 @@ public class SwitchJob implements Job {
         String state = getMap(jobExecutionContext);
 
         updateState(device, state);
-        LOGGER.info(String.format("%s - Turn %s %s!", new Date().toString(), device, state));
     }
 
     private void updateState(String device, String state) throws JobExecutionException {
         MqttService service = Optional.ofNullable(this.mqttService)
             .orElseThrow(() -> new JobExecutionException("MqttService is null"));
-        LOGGER.info("Switching {} {}", device, state);
+        LOGGER.info("Schedular: switching {} {}", device, state);
         if ("on".equalsIgnoreCase(state)) {
             service.switchOn(device);
         } else if ("off".equalsIgnoreCase(state)) {
@@ -58,7 +57,7 @@ public class SwitchJob implements Job {
         } else {
             throw new JobExecutionException(String.format("Invalid state (%s) provided.", state));
         }
-        LOGGER.info("Switched {} {}", device, state);
+        LOGGER.info("Schedular: switched {} {}", device, state);
     }
 
     private String getMap(JobExecutionContext jobExecutionContext) {

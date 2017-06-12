@@ -35,7 +35,7 @@ public class MqttItemResource {
     @Path("{itemId}")
     public void setState(@NotNull @PathParam("itemId") String itemId,
                          String state) {
-        LOGGER.info("setState({})", itemId, state);
+        LOGGER.info("REST: setState({}, {})", itemId, state);
 
         MqttItemState mqttItemState = MqttItemState.valueOf(state);
         mqttService.setState(itemId, mqttItemState);
