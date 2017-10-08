@@ -12,7 +12,8 @@ The solution:
 * relies on a running MQTT broker, like [Mosquitto](http://www.instructables.com/id/Installing-MQTT-BrokerMosquitto-on-Raspberry-Pi/);
 * uses [ngx-mqtt](https://www.npmjs.com/package/ngx-mqtt)
 * uses [ngx-ui-switch](https://www.npmjs.com/package/ngx-ui-switch)
-* is deployed on a [JBoss EAP 7](https://developers.redhat.com/products/eap/download/) instance.
+* the solution is deployed as spring boot standalone application services
+* scheduling is realised using the description on [baeldung blog](http://www.baeldung.com/spring-scheduled-tasks).
 
 ## Deployment
 
