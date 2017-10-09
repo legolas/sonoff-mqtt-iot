@@ -13,7 +13,7 @@ The solution:
 * uses [ngx-mqtt](https://www.npmjs.com/package/ngx-mqtt)
 * uses [ngx-ui-switch](https://www.npmjs.com/package/ngx-ui-switch)
 * the solution is deployed as spring boot standalone application services
-* scheduling is realised using the description on [baeldung blog](http://www.baeldung.com/spring-scheduled-tasks).
+* scheduling is realised using the description on [baeldung blog](http://www.baeldung.com/spring-scheduled-tasks) in combination with [this github example](https://github.com/Charlynux/task-scheduling/blob/master/src/main/java/demo/TaskSchedulingApplication.java).
 
 ## Deployment
 
