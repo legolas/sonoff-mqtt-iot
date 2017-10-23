@@ -17,4 +17,3 @@ The solution:
 
 ## Deployment
 
-The Sonoff MQTT IoT web application is build als a Java EE 7 web archive, it is deployed through simply copying the war file to the `$JBOSS_HOME/standalone/deployments` directory.
