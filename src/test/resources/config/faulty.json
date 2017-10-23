@@ -1,0 +1,47 @@
+{
+  "locations": [
+    {
+      "name": "Woonkamer",
+      "devices": [
+        {
+          "id": "sonoff01",
+          "label": "Boekenkast",
+          "location": null,
+          "listOfSchedule": [
+            {
+              "cron": "0 1 2 3 4 5 6",
+              "action": "on"
+            },
+            {
+              "cron": "6 5 4 3 2 1 0",
+              "action": "off"
+            },
+            {
+              "cron": "6 5 4 3 2 1 0",
+              "action": "toggle"
+            }
+          ]
+        },
+        {
+          "id": "sonoff02",
+          "label": "Televisielamp",
+          "location": null,
+          "listOfSchedule": [
+            {
+              "cron": "0 1 2 3 4 5 6",
+              "action": "on"
+            },
+            {
+              "cron": "6 5 4 3 2 1 0",
+              "action": "off"
+            },
+            {
+              "cron": "6 5 4 3 2 1 0",
+              "action": "toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
