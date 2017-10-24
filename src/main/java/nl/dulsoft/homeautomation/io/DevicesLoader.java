@@ -22,12 +22,13 @@ public class DevicesLoader {
     private DevicesConfiguration devicesConfiguration;
 
     public DevicesLoader(@Autowired Path configurationFilePath) {
+        LOGGER.info("Reading configuration from file {}.", configurationFilePath);
         devicesConfiguration = new DevicesConfiguration();
         parse(configurationFilePath);
+        LOGGER.info("Completed configuration. Registered {} location(s).", devicesConfiguration.getLocations().size());
     }
 
     private void parse(Path configurationFilePath) {
-        LOGGER.info("Reading configuration from file {}.", configurationFilePath);
         String json = readFile(configurationFilePath);
         parseJsonString(json);
     }

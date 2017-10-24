@@ -43,9 +43,10 @@ public class DevicesLoaderTest {
     @Test
     public void devicesConfigurationShouldHaveOneLocationWithNameWoonkamer() {
         DevicesLoader devicesLoaderUnderTest = new DevicesLoader(path);
-        DevicesConfiguration devicesConfiguration = devicesLoaderUnderTest.getDevicesConfiguration();
 
+        DevicesConfiguration devicesConfiguration = devicesLoaderUnderTest.getDevicesConfiguration();
         List<Location> locations = devicesConfiguration.getLocations();
+
         assertEquals(1, locations.size());
         assertEquals("Woonkamer", locations.get(0).getName());
     }
