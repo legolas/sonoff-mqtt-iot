@@ -17,3 +17,6 @@ The solution:
 
 ## Deployment
 
+Because the solution is implemented using [spring boot]() it can be easily started using `java -jar <jar-file-name>.jar`.
+This allows the application to be started as a systemd service on a Raspberry PI.
+[This article](https://dzone.com/articles/run-your-java-application-as-a-service-on-ubuntu) describes how to configure this.
